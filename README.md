@@ -17,7 +17,8 @@ This repository contains **Dockerfile** of [Left 4 Dead 2 Server](http://gameser
 
 ### Usage
 
-    docker run -dt --name l4d2 -v /var/docker/l4dserver:/home/l4dserver \
+    docker run -dt --name l4d2 -v /var/docker/l4dserver:/home/l4dserver -p 27015:27015 \
+    -p 27015:27015/udp --entrypoint /home/l4d2server/serverfiles/srcds_run johnjelinek/l4d2server \
     -game left4dead2 -strictportbind -ip 0.0.0.0 -port 27015 +clientport 27005 \
     +map c5m1_waterfront +servercfgfile l4d2-server.cfg -maxplayers 8
 
